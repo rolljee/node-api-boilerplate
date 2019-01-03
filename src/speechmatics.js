@@ -1,27 +1,71 @@
-const cp = require("child_process");
+const cp = require('child_process');
+const isRunning = require('is-running');
+const results = [];
 
 const SpeechMatics = {
-  submit(license, lang) {
-    const command = `docker run -i
-	  -v ~/Downloads/output-audio.aac:/input.audio
-	  -e LICENSE_KEY=${license} speechmatics-docker-prod-videomenthe.jfrog.io/transcriber-${lang}:6.0.2`;
+  submit({ license, audioFilePath, lang }) {
+    if (!license) {
+      throw new Error("No license submited");
+    }
+    if (!audioFilePath) {
+      throw new Error("No audio file path submited");
+    }
+    if (!lang) {
+      throw new Error("No lang submited");
+    }
+    const command = `docker run -i -v ${audioFilePath}:/input.audio -e LICENSE_KEY=${license} speechmatics-docker-prod-videomenthe.jfrog.io/transcriber-${lang}:6.0.2`;
 
     const process = cp.exec(
       command,
       { maxBuffer: Infinity },
       (error, stdout, stderr) => {
         if (error) {
-			console.error(error);
-		} else if (stderr) {
-			console.error(stderr)
-		} else {
-			console.log(stdout);
-		}
-
+          results.push({
+            pid: process.pid,
+            result: null,
+            error: error,
+          });
+        } else if (stderr) {
+          results.push({
+            pid: process.pid,
+            result: null,
+            error: stderr,
+          });
+        } else {
+          results.push({
+            pid: process.pid,
+            result: JSON.parse(stdout),
+            error: null,
+          });
+        }
       }
     );
+    return process.pid;
   },
-  monitor() {}
+  monitor(pid) {
+    if (!pid) {
+      throw new Error("No PID submited");
+    }
+    const result = results.find(res => Number(res.pid) === Number(pid));
+    if (result) {
+      return {
+        pid: pid,
+        status: 'completed',
+        result: result,
+      }
+    } else if (isRunning(pid)) {
+      return {
+        pid: pid,
+        status: 'running',
+      }
+    } else {
+      return {
+        pid: pid,
+        status: 'error',
+        error: 'Job not found',
+      }
+    }
+  }
 };
 
 module.exports = SpeechMatics;
