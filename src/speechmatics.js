@@ -22,18 +22,21 @@ const SpeechMatics = {
         if (error) {
           results.push({
             pid: process.pid,
+            createdAt: new Date(),
             result: null,
             error: error,
           });
         } else if (stderr) {
           results.push({
             pid: process.pid,
+            createdAt: new Date(),
             result: null,
             error: stderr,
           });
         } else {
           results.push({
             pid: process.pid,
+            createdAt: new Date(),
             result: JSON.parse(stdout),
             error: null,
           });
@@ -48,6 +51,12 @@ const SpeechMatics = {
     }
     const result = results.find(res => Number(res.pid) === Number(pid));
     if (result) {
+      setTimeout(function removeResult(pid) {
+        const index = results.findIndex(res => Number(res.pid) === Number(pid));
+        if (index > -1) {
+          results.splice(index, 1);
+        }
+      }, 60 * 60 * 1000); // Remove the result 60 minutes after getting it
       return {
         pid: pid,
         status: 'completed',
@@ -62,7 +71,7 @@ const SpeechMatics = {
       return {
         pid: pid,
         status: 'error',
-        error: 'Job not found',
+        error: 'Job and result not found',
       }
     }
   }
