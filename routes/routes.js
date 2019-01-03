@@ -15,7 +15,7 @@ const appRouter = function(app) {
   });
   app.get("/status/:pid", function(req, res) {
     try {
-      const result = SpeechMatics.monitor(req.param('pid'));
+      const result = SpeechMatics.monitor(req.params.pid);
       res.status(200).send(JSON.stringify(result));
     } catch (e) {
       res.status(400).send(JSON.stringify({

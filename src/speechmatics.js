@@ -57,10 +57,18 @@ const SpeechMatics = {
           results.splice(index, 1);
         }
       }, 60 * 60 * 1000); // Remove the result 60 minutes after getting it
-      return {
-        pid: pid,
-        status: 'completed',
-        result: result,
+      if (result.error) {
+        return {
+          pid: pid,
+          status: 'error',
+          error: result.error,
+        }
+      } else {
+        return {
+          pid: pid,
+          status: 'completed',
+          result: result,
+        }
       }
     } else if (isRunning(pid)) {
       return {
