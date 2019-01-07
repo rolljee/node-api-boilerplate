@@ -5,5 +5,6 @@ sudo env PATH=$PATH:/usr/bin /usr/local/lib/node_modules/pm2/bin/pm2 startup sys
 
 # Save the config
 cd /home/$USER/source
+npm install
 pm2 start
 pm2 save
