@@ -13,7 +13,7 @@ module.exports = {
       host: ["13.80.28.40"],
       ssh_options: "StrictHostKeyChecking=no",
       ref: "origin/master",
-      repo: "https://github.com/eolementhe/speechmatics-api",
+      repo: "git@github.com:eolementhe/speechmatics-api",
       path: "~/speechmatics-api",
       "post-deploy": "npm install"
     }
