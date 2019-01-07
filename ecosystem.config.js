@@ -14,7 +14,7 @@ module.exports = {
       ssh_options: "StrictHostKeyChecking=no",
       ref: "origin/master",
       repo: "git@github.com:eolementhe/speechmatics-api",
-      path: "~/speechmatics-api",
+      path: "/var/www/production",
       "post-deploy": "npm install"
     }
   }
