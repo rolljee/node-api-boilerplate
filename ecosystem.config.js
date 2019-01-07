@@ -15,7 +15,7 @@ module.exports = {
       ref: "origin/master",
       repo: "git@github.com:eolementhe/speechmatics-api.git",
       path: "/home/eolementhe",
-      "post-deploy": "npm install"
+      "post-deploy": "npm install && npm start"
     }
   }
 };
