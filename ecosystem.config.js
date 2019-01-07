@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: "speechmatics.js",
+      name: "speechmatics-api",
       script: "index.js"
     }
   ],

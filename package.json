@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "pm2 startOrRestart ecosystem.config.js",
-    "setup": "pm2 deploy ecosystem.config.js production setup",
+    "setup": "./scripts/deploy.sh",
     "update": "pm2 deploy ecosystem.config.js production update",
     "deploy": "pm2 deploy ecosystem.config.js production"
   },
