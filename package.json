@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 startOrRestart ecosystem.json",
-    "setup": "pm2 deploy ecosystem.json production setup",
+    "start": "pm2 startOrRestart ecosystem.config.js",
+    "setup": "pm2 deploy ecosystem.config.js production setup",
+    "update": "pm2 deploy ecosystem.config.js production update",
     "deploy": "pm2 deploy ecosystem.config.js production"
   },
   "author": "",
