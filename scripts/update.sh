@@ -13,6 +13,5 @@ set -e
 
 echo "Deploy app to server"
 tar -czvf bundle.tar.gz routes scripts src ecosystem.config.js index.js package.json package-lock.json
-scp -r ./bundle.tar.gz ${username}@${url}:/home/${username}/${appName}
-
-ssh ${username}@${url} 'bash -s' < ./scripts/remote/update.sh ${appName}
+scp -i /etc/ssh/${key} -r ./bundle.tar.gz ${username}@${url}:/home/${username}/${appName}/bundle.tar.gz
+ssh -i /etc/ssh/${key} ${username}@${url} 'bash -s' < ./scripts/remote/update.sh ${appName}

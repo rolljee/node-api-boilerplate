@@ -25,7 +25,7 @@ rm -f bundle.tar.gz
 set -e
 
 tar -czvf bundle.tar.gz routes scripts src ecosystem.config.js index.js package.json package-lock.json
-scp -r ./bundle.tar.gz ${username}@${url}:/home/${username}/${appName}
+scp -i /etc/ssh/${key} -r ./bundle.tar.gz ${username}@${url}:/home/${username}/${appName}/bundle.tar.gz
 
 # Make app restart on reboot
 echo "Launch reboot script"
