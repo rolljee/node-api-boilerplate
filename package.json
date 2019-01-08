@@ -14,8 +14,7 @@
     "body-parser": "^1.18.3",
     "child_process": "^1.0.2",
     "express": "^4.16.4",
-    "is-running": "^2.1.0",
-    "nodemon": "^1.18.9"
+    "is-running": "^2.1.0"
   },
   "devDependencies": {
     "pm2": "^3.2.4"

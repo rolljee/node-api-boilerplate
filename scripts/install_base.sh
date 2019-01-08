@@ -20,7 +20,7 @@ if [ ! "$hasDocker" ]; then
 
 	# Install docker
 	wget -qO- https://get.docker.com/ | sudo sh
-	sudo usermod -a -G docker ${USER}
+	sudo usermod -a -G docker $USER
 	sudo service docker start || sudo service docker restart
 	echo "docker installed on remote host"
 fi
@@ -31,10 +31,14 @@ sudo apt-get install -y nodejs npm
 
 echo "Create output folder"
 mkdir -p /home/eolementhe/$1
+sudo chown -R $USER:$USER /usr/local/lib
+sudo chown -R $USER:$USER /usr/local/bin
 
 # Install pm2 on machine
 echo "Installing pm2"
 npm install -g pm2
+mkdir -p /home/eolementhe/.pm2/
+sudo chown -R $USER:$USER /home/eolementhe/.pm2/
 
 # Log to docker and pull the image.
 echo "Pulling speechmatics docker"

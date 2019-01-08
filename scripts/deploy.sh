@@ -16,13 +16,17 @@ ssh-add /etc/ssh/${key}
 # Install docker & base pkg
 echo "Install base"
 echo $pwd
-ssh ${username}@${url} 'bash -s' < ./scripts/install_base.sh appName
+ssh ${username}@${url} 'bash -s' < ./scripts/install_base.sh ${appName}
 
 # Deploy app to server
 echo "Deploy app to server"
+set +e
+rm -f bundle.tar.gz
+set -e
+
 tar -czvf bundle.tar.gz routes scripts src ecosystem.config.js index.js package.json package-lock.json
 scp -r ./bundle.tar.gz ${username}@${url}:/home/${username}/${appName}
 
 # Make app restart on reboot
 echo "Launch reboot script"
-ssh ${username}@${url} 'bash -s' < ./scripts/startup.sh appName
+ssh ${username}@${url} 'bash -s' < ./scripts/startup.sh ${appName}

@@ -11,6 +11,7 @@ module.exports = {
       key: "/etc/ssh/eolementhe.top",
       user: "eolementhe",
       host: ["13.80.28.40"],
+      // host: ["13.80.28.40"],
       ssh_options: "StrictHostKeyChecking=no",
       ref: "origin/master",
       repo: "git@github.com:eolementhe/speechmatics-api.git",
