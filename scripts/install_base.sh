@@ -29,6 +29,9 @@ fi
 echo "Installing base packages"
 sudo apt-get install -y nodejs npm
 
+echo "Create output folder"
+mkdir -p /home/eolementhe/$1
+
 # Install pm2 on machine
 echo "Installing pm2"
 npm install -g pm2
