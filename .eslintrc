@@ -30,7 +30,7 @@
 		"function-paren-newline":"off",
 		"class-methods-use-this": "off",
 		"eqeqeq": "error",
-		"comma-dangle": "warn",
+		"comma-dangle": ["error", "only-multiline"],
 		"max-len": ["off"],
 		"space-infix-ops": "error",
 		"semi": ["error", "always"],
