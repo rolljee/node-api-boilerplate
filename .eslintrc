@@ -2,17 +2,13 @@
 	"parser": "babel-eslint",
 	"parserOptions": {
 		"allowImportExportEverywhere": true,
-		"ecmaVersion": 2017,
-		"ecmaFeatures": {
-            "jsx": true
-        }
+		"ecmaVersion": 2017
 	},
 	"plugins": [
 		"security",
 		"prettier"
 	],
 	"extends": [
-		"airbnb",
 		"eslint:recommended",
 		"plugin:security/recommended",
 		"plugin:prettier/recommended"
@@ -34,7 +30,7 @@
 		"function-paren-newline":"off",
 		"class-methods-use-this": "off",
 		"eqeqeq": "error",
-		"comma-dangle": "error",
+		"comma-dangle": "warn",
 		"max-len": ["off"],
 		"space-infix-ops": "error",
 		"semi": ["error", "always"],

@@ -4,10 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint . --cache",
     "start": "pm2 startOrRestart ecosystem.config.js",
     "init": "./scripts/conf.sh init",
     "update": "./scripts/conf.sh update"
   },
+  "pre-commit": [
+    "lint"
+  ],
   "author": "rolljee",
   "license": "ISC",
   "dependencies": {
@@ -24,13 +28,10 @@
     "babel-eslint": "^8.2.2",
     "babel-preset-env": "^1.7.0",
     "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-security": "^1.4.0",
-    "parcel-bundler": "^1.10.3",
     "pre-commit": "^1.2.2",
     "prettier": "^1.15.2"
   }
