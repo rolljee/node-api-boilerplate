@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
     "lint": "eslint . --cache",
+    "start": "node index.js",
+    "serve": "node dist/server.js",
+    "build": "babel src —-out-dir dist",
+    "dev": "nodemon --exec babel-node src/server.js",
     "init": "./scripts/conf.sh init",
     "update": "./scripts/conf.sh update"
   },
@@ -22,6 +24,7 @@
   "devDependencies": {
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.1.0",
+    "@babel/node": "^7.2.2",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "babel-eslint": "^8.2.2",
