@@ -1,0 +1,104 @@
+{
+	"parser": "babel-eslint",
+	"parserOptions": {
+		"allowImportExportEverywhere": true,
+		"ecmaVersion": 2017,
+		"ecmaFeatures": {
+            "jsx": true
+        }
+	},
+	"plugins": [
+		"security",
+		"prettier"
+	],
+	"extends": [
+		"airbnb",
+		"eslint:recommended",
+		"plugin:security/recommended",
+		"plugin:prettier/recommended"
+	],
+	"rules": {
+		"new-cap": "off",
+		"camelcase": "off",
+		"brace-style": "off",
+		"key-spacing": "off",
+		"guard-for-in": "off",
+		"arrow-parens": "off",
+		"default-case": "off",
+		"spaced-comment": "off",
+		"prefer-template": "off",
+		"consistent-return": "off",
+		"object-curly-newline": "off",
+		"prefer-destructuring": "off",
+		"prefer-arrow-callback": "off",
+		"function-paren-newline":"off",
+		"class-methods-use-this": "off",
+		"eqeqeq": "error",
+		"comma-dangle": "error",
+		"max-len": ["off"],
+		"space-infix-ops": "error",
+		"semi": ["error", "always"],
+		"radix": ["error", "as-needed"],
+		"indent": [
+			"error",
+			"tab",
+			{
+				"ArrayExpression": 1,
+				"ObjectExpression": 1,
+				"SwitchCase": 1
+			}
+		],
+		"space-before-function-paren": ["error", {
+			"named": "never",
+			"anonymous": "never",
+			"asyncArrow": "always"
+		}],
+		"no-multi-spaces": [
+			"error",
+			{
+				"exceptions": {
+					"BinaryExpression": true,
+					"VariableDeclarator": true,
+					"ImportDeclaration": true
+				}
+			}
+		],
+		"no-undef": "error",
+		"no-tabs": "off",
+		"no-console": "off",
+		"no-plusplus": "off",
+		"no-new-func": "off",
+		"no-loop-func": "off",
+		"no-multi-str": "error",
+		"no-unused-vars": "off",
+		"no-else-return": "off",
+		"no-lonely-if": "error",
+		"no-extra-semi": "error",
+		"no-control-regex": "off",
+		"no-magic-numbers": "off",
+		"no-param-reassign": "off",
+		"no-useless-escape": "off",
+		"no-global-assign": "error",
+		"no-underscore-dangle": "off",
+		"no-restricted-syntax": "off",
+		"no-implicit-globals":"error",
+		"no-restricted-globals": "off",
+		"no-extra-boolean-cast": "off",
+		"no-prototype-builtins": "off",
+		"no-restricted-properties": "off",
+		"no-template-curly-in-string": "off",
+		"no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
+		"no-trailing-spaces": ["error", { "skipBlankLines": true }],
+		"prettier/prettier": "error",
+		"security/detect-unsafe-regex": "off",
+		"security/detect-object-injection": "off",
+		"security/detect-non-literal-regexp": "off",
+		"security/detect-non-literal-fs-filename": "off"
+	},
+	"env": {
+		"es6": true,
+		"node": true,
+		"jest": true,
+		"browser": true
+	}
+}

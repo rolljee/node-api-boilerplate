@@ -5,18 +5,33 @@
   "main": "index.js",
   "scripts": {
     "start": "pm2 startOrRestart ecosystem.config.js",
-    "setup": "./scripts/deploy.sh",
-    "update": "./scripts/update.sh"
+    "init": "./scripts/conf.sh init",
+    "update": "./scripts/conf.sh update"
   },
-  "author": "",
+  "author": "rolljee",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "child_process": "^1.0.2",
-    "express": "^4.16.4",
-    "is-running": "^2.1.0"
+    "express": "^4.16.4"
   },
   "devDependencies": {
-    "pm2": "^3.2.4"
+    "pm2": "^3.2.4",
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^8.2.2",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-security": "^1.4.0",
+    "parcel-bundler": "^1.10.3",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.15.2"
   }
 }

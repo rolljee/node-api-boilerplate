@@ -1,0 +1,4 @@
+/public/**
+/packages/**
+/coverage/**
+/node_modules/**
