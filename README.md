@@ -17,6 +17,10 @@ The purpose is to create a goos starter pack to create an NodeJs API
 
 ### Deployment
 
+This project is aim to be deploy through ssh
+Fill `user`/`host`/`key` field in the `conf.sh` and run one of these commands, it will be aimed later to be deploy using docker.
+
+
 ```shell
 # First deploy hook
 > npm run init
@@ -29,9 +33,8 @@ The purpose is to create a goos starter pack to create an NodeJs API
 ## deps
 
 * express - web server
-* pm2 - used for deployment
-* nodemon - restart server when changes happen
-
-* babel - use for transpiling
-* eslint to check the code format
-* prettier - use for formating the code
+* pm2 - use for deployment
+* babel use for transpiling
+* eslint  use check the code format
+* prettier use for formating the code
+* nodemon use to restart server when changes happen
