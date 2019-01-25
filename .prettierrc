@@ -1,13 +1,7 @@
 
 {
-	"noSemi": true,
-	"useTabs": true,
-	"rcVerbose": true,
+	"printWidth": 100,
 	"singleQuote": true,
-	"bracketSpacing": true,
-	"tabWidth": 4,
-	"printWidth": 120,
-	"parser": "babylon",
-	"trailingComma": "all",
-	"arrowParens": "avoid"
-}
+	"tabWidth": 2,
+	"useTabs": true
+  }

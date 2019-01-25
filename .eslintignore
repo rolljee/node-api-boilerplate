@@ -2,4 +2,3 @@
 /packages/**
 /coverage/**
 /node_modules/**
-/client/compatibility/*
