@@ -1,7 +1,7 @@
 const Api = require('../src/api');
 
-const appRouter = function(app) {
-	app.post('/submit', function(req, res) {
+const appRouter = function createRoutes(app) {
+	app.post('/submit', (req, res) => {
 		try {
 			const result = Api.submit(req.body);
 			res.status(200).send(JSON.stringify(result));

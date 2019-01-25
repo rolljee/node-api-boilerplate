@@ -1,7 +1,7 @@
 const Api = {
 	submit(body) {
-		console.log(body);
-	},
+		console.info(body);
+	}
 };
 
 export default Api;
